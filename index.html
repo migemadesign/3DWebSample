@@ -8,7 +8,8 @@
     <script src="https://cdn.tailwindcss.com">
     </script>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+   <!----- -->
+   <link rel="stylesheet" href="TemplateData/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <style>
@@ -19,143 +20,97 @@
   </head>
   <body class="dark">
     <div class="container mx-auto px-4 py-8">
-      <header class="flex justify-between items-center pb-4 border-b border-gray-700">
-       <div class="flex items-center">
-        <a class="text-gray-400 hover:text-white mr-4" href="#">
-         首页
+      <div class="flex justify-between items-center mb-4">
+       <div class="text-sm">
+        <a class="text-gray-400 hover:text-gray-200" href="#">
+         首頁
         </a>
-        <a class="text-gray-400 hover:text-white mr-4" href="#">
-         3D文物解说
+        /
+        <a class="text-gray-400 hover:text-gray-200" href="#">
+         3D文物瀏覽
         </a>
-        <a class="text-gray-400 hover:text-white" href="#">
-         帮助指南
-        </a>
+        /
+        <span class="text-gray-200">
+         青銅器詳情頁
+        </span>
        </div>
-       <div class="flex items-center">
-        <a class="text-gray-400 hover:text-white mr-4" href="#">
-         我的文物
+       <div class="text-sm">
+        <a class="text-gray-400 hover:text-gray-200 mr-2" href="#">
+         登錄
         </a>
-        <a class="text-gray-400 hover:text-white mr-4" href="#">
-         用户反馈
-        </a>
-        <a class="text-gray-400 hover:text-white mr-4" href="#">
+        <a class="text-gray-400 hover:text-gray-200" href="#">
          Language
         </a>
-        <button class="text-gray-400 hover:text-white mr-2">
-         <i class="fas fa-search">
-         </i>
-        </button>
-        <button class="text-gray-400 hover:text-white mr-2">
-         <i class="fas fa-heart">
-         </i>
-        </button>
-        <button class="text-gray-400 hover:text-white">
-         <i class="fas fa-user">
-         </i>
-        </button>
        </div>
-      </header>
-      <main class="mt-8">
-       <div class="flex justify-between items-center mb-4">
-        <h1 class="text-xl font-bold">
-         高古青铜器 虎鎣
+      </div>
+      <div class="flex justify-between items-start">
+       <div class="w-full">
+        <h1 class="text-3xl font-bold mb-4 text-center" style="color: white;">
+         青銅器 鼎青銅器
         </h1>
-        <div class="flex items-center">
-         <button class="px-3 py-1 bg-gray-700 text-yellow-500 mr-2">
+        <div class="flex justify-center space-x-4 mb-6">
+         <button class="px-4 py-2 bg-yellow-600 text-black font-semibold">
           3D
          </button>
-         <button class="px-3 py-1 bg-gray-800 text-gray-400">
+         <button class="px-4 py-2 bg-gray-700 text-gray-400">
           2D文物
          </button>
-         <button class="px-3 py-1 bg-gray-800 text-gray-400 ml-2">
-          电子
+         <button class="px-4 py-2 bg-gray-700 text-gray-400">
+          電子
          </button>
         </div>
-       </div>
-
-       <div class="flex flex-col items-center">
-        <div class="w-full max-w-2xl">
-             <div id="unity-container" class="unity-desktop">
+        
+        <div id="unity-container" class="unity-desktop">
           <canvas id="unity-canvas"></canvas>
-          
-         <div class="text-sm text-center">
-          <div class="flex justify-between items-center mb-2">
-           <span>
-            编号一览表
-           </span>
-           <span>
-            中号001513
-           </span>
+      
+          <div id="loading-cover" style="display:none;">
+            <div id="unity-loading-bar">
+              <div id="unity-logo"><img src="logo.png"></div>
+              <div id="unity-progress-bar-empty" style="display: none;border-width:3px 6px">
+                <div id="unity-progress-bar-full"></div>
+              </div>
+              <div class="spinner"></div>
+            </div>
           </div>
-          <div class="flex justify-between items-center mb-2">
-           <span>
-            品名
-           </span>
-           <span>
-            虎鎣
-           </span>
-          </div>
-          <div class="flex justify-between items-center mb-2">
-           <span>
-            时代
-           </span>
-           <span>
-            商周
-           </span>
-          </div>
-          <div class="flex justify-between items-center mb-2">
-           <span>
-            尺寸
-           </span>
-           <span>
-            高16.3公分；口径43.0公分
-           </span>
-          </div>
-          <div class="flex justify-between items-center mb-2">
-           <span>
-            来源
-           </span>
-           <span>
-            捐赠
-           </span>
-          </div>
-          <div class="flex justify-between items-center mb-2">
-           <span>
-            材质
-           </span>
-           <span>
-            青铜
-           </span>
-          </div>
-          <div class="flex justify-between items-center mb-2">
-           <span>
-            主题解释
-           </span>
-           <span>
-            图文
-           </span>
-          </div>
-          <p class="mt-4">
-           虎鎣是一种，既是武器又是，器物容器；通常是青铜器或者铁器。本器造型优美，主体部分为青铜，二是用来挂在车辆上的装饰品，既是车辆装饰品，又是车上的武器之一。正是因为其使用的复杂性，使得虎鎣成为了青铜器中的精品，其艺术价值和历史价值都非常的高。
-          </p>
-         </div>
+         <div id="unity-fullscreen-button" style="display: none;"></div>
+    
+   
+        <div class="text-sm text-gray-400 mb-8">
+         <p>
+          編號：中S001513
+         </p>
+         <p>
+          品名：鼎青銅器
+         </p>
+         <p>
+          時代：商晚期
+         </p>
+         <p>
+          尺寸：高16.3公分；口徑43.0公分
+         </p>
+         <p>
+          形制：鼎
+         </p>
+         <p>
+          材質：銅
+         </p>
+         <p>
+          主題分類：器皿
+         </p>
+        </div>
+        <div class="border-t border-gray-700 pt-4">
+         <p class="text-sm text-gray-400">
+          簡介
+         </p>
+         <p class="text-sm text-gray-200 mt-2">
+          青銅器是一種...文化的重要組成部分。
+         </p>
         </div>
        </div>
-      </main>
+      </div>
      </div>
     
-    <div id="loading-cover" style="display:none;">
-      <div id="unity-loading-bar">
-        <div id="unity-logo"><img src="logo.png"></div>
-        <div id="unity-progress-bar-empty" style="display: none;border-width:3px 6px">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-        <div class="spinner"></div>
-      </div>
-    </div>
-
-
-    <div id="unity-fullscreen-button" style="display: none;"></div>
+    
 
     <script>
       const hideFullScreenButton = "";
