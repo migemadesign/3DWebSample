@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>3D 文物展示</title>
+  <title>3D 動物解說</title>
   <script src="https://cdn.tailwindcss.com">
   </script>
   <link rel="shortcut icon" href="TemplateData/favicon.ico">
@@ -41,8 +41,8 @@
 
    
     
-  </h1>
-  <div id="unity-container" class="unity-desktop">
+  
+  <div id="unity-container" class="unity-desktop" style="margin-top: 80px;">
    
     <canvas id="unity-canvas"></canvas>
 
@@ -59,15 +59,12 @@
   </div>
 
   <!-- 图片 -->
-  <img src="TemplateData/介紹.png" alt="介紹文">
+  <img src="TemplateData/介紹.png" alt="介紹文" style="margin-top: 30px;">
 
   </div>
 
-
-
-
   <script>
-    const hideFullScreenButton = "";
+    const hideFullScreenButton = "1";
     const buildUrl = "Build";
     const loaderUrl = buildUrl + "/3DWebSample.loader.js";
     const config = {
@@ -76,7 +73,7 @@
       codeUrl: buildUrl + "/3DWebSample.wasm",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "DefaultCompany",
-      productName: "3D 文物展示",
+      productName: "3D 動物解說",
       productVersion: "0.1",
     };
 
