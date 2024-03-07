@@ -23,7 +23,7 @@ body {
     height: 60%;
     transform: scale(1);
     margin: auto;
-    margin-top: 40px;
+    
    }
 #unity-canvas {
     width: 100%;
