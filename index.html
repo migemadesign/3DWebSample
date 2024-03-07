@@ -1,182 +1,137 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>3D 文物展示</title>
-    <script src="https://cdn.tailwindcss.com">
-    </script>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-   <!----- -->
-   <link rel="stylesheet" href="TemplateData/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <style>
-     body {
-              font-family: 'Noto Sans TC', sans-serif;
-          }
-    </style>
-  </head>
-  <body class="dark">
-    <div class="container mx-auto px-4 py-8">
-      <div class="flex justify-between items-center mb-4">
-       <div class="text-sm">
-        <a class="text-gray-400 hover:text-gray-200" href="#">
-         首頁
-        </a>
-        /
-        <a class="text-gray-400 hover:text-gray-200" href="#">
-         3D文物瀏覽
-        </a>
-        /
-        <span class="text-gray-200">
-         青銅器詳情頁
-        </span>
-       </div>
-       <div class="text-sm">
-        <a class="text-gray-400 hover:text-gray-200 mr-2" href="#">
-         登錄
-        </a>
-        <a class="text-gray-400 hover:text-gray-200" href="#">
-         Language
-        </a>
-       </div>
-      </div>
-      <div class="flex justify-between items-start">
-       <div class="w-full">
-        <h1 class="text-3xl font-bold mb-4 text-center" style="color: white;">
-         青銅器 鼎青銅器
-        </h1>
-        <div class="flex justify-center space-x-4 mb-6">
-         <button class="px-4 py-2 bg-yellow-600 text-black font-semibold">
-          3D
-         </button>
-         <button class="px-4 py-2 bg-gray-700 text-gray-400">
-          2D文物
-         </button>
-         <button class="px-4 py-2 bg-gray-700 text-gray-400">
-          電子
-         </button>
-        </div>
-        
-        <div id="unity-container" class="unity-desktop">
-          <canvas id="unity-canvas"></canvas>
-      
-          <div id="loading-cover" style="display:none;">
-            <div id="unity-loading-bar">
-              <div id="unity-logo"><img src="logo.png"></div>
-              <div id="unity-progress-bar-empty" style="display: none;border-width:3px 6px">
-                <div id="unity-progress-bar-full"></div>
-              </div>
-              <div class="spinner"></div>
-            </div>
-          </div>
-         <div id="unity-fullscreen-button" style="display: none;"></div>
-    
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>3D 文物展示</title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <!----- -->
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .green-line {
+      border-top: 15px solid #66CDAA;
+      /* 浅绿色粗线 */
+      margin-bottom: 0px;
+      /* 调整线条与其他内容之间的间距 */
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body class="dark">
+
+   <!-- 图片 -->
+   <img src="TemplateData/title.jpg" alt="title">
+   <img src="TemplateData/標題.png" alt="title" style="float: left; margin-left: 40px;">
+
    
-        <div class="text-sm text-gray-400 mb-8">
-         <p>
-          編號：中S001513
-         </p>
-         <p>
-          品名：鼎青銅器
-         </p>
-         <p>
-          時代：商晚期
-         </p>
-         <p>
-          尺寸：高16.3公分；口徑43.0公分
-         </p>
-         <p>
-          形制：鼎
-         </p>
-         <p>
-          材質：銅
-         </p>
-         <p>
-          主題分類：器皿
-         </p>
+    
+  </h1>
+  <div id="unity-container" class="unity-desktop">
+   
+    <canvas id="unity-canvas"></canvas>
+
+    <div id="loading-cover" style="display:none;">
+      <div id="unity-loading-bar">
+        <div id="unity-logo"><img src="logo.png"></div>
+        <div id="unity-progress-bar-empty" style="display: none;border-width:3px 6px">
+          <div id="unity-progress-bar-full"></div>
         </div>
-        <div class="border-t border-gray-700 pt-4">
-         <p class="text-sm text-gray-400">
-          簡介
-         </p>
-         <p class="text-sm text-gray-200 mt-2">
-          青銅器是一種...文化的重要組成部分。
-         </p>
-        </div>
-       </div>
+        <div class="spinner"></div>
       </div>
-     </div>
-    
-    
+    </div>
+    <div id="unity-fullscreen-button" style="display: none;"></div>
+  </div>
 
-    <script>
-      const hideFullScreenButton = "";
-      const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/3DWebSample.loader.js";
-      const config = {
-        dataUrl: buildUrl + "/3DWebSample.data",
-        frameworkUrl: buildUrl + "/3DWebSample.framework.js",
-        codeUrl: buildUrl + "/3DWebSample.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "3D 文物展示",
-        productVersion: "0.1",
-      };
+  <!-- 图片 -->
+  <img src="TemplateData/介紹.png" alt="介紹文">
 
-      const container = document.querySelector("#unity-container");
-      const canvas = document.querySelector("#unity-canvas");
-      const loadingCover = document.querySelector("#loading-cover");
-      const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
-      const progressBarFull = document.querySelector("#unity-progress-bar-full");
-      const fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      const spinner = document.querySelector('.spinner');
+  </div>
 
-      const canFullscreen = (function() {
-        for (const key of [
-            'exitFullscreen',
-            'webkitExitFullscreen',
-            'webkitCancelFullScreen',
-            'mozCancelFullScreen',
-            'msExitFullscreen',
-          ]) {
-          if (key in document) {
-            return true;
-          }
+
+
+
+  <script>
+    const hideFullScreenButton = "";
+    const buildUrl = "Build";
+    const loaderUrl = buildUrl + "/3DWebSample.loader.js";
+    const config = {
+      dataUrl: buildUrl + "/3DWebSample.data",
+      frameworkUrl: buildUrl + "/3DWebSample.framework.js",
+      codeUrl: buildUrl + "/3DWebSample.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "DefaultCompany",
+      productName: "3D 文物展示",
+      productVersion: "0.1",
+    };
+
+    const container = document.querySelector("#unity-container");
+    const canvas = document.querySelector("#unity-canvas");
+    const loadingCover = document.querySelector("#loading-cover");
+    const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+    const progressBarFull = document.querySelector("#unity-progress-bar-full");
+    const fullscreenButton = document.querySelector("#unity-fullscreen-button");
+    const spinner = document.querySelector('.spinner');
+
+    const canFullscreen = (function () {
+      for (const key of [
+        'exitFullscreen',
+        'webkitExitFullscreen',
+        'webkitCancelFullScreen',
+        'mozCancelFullScreen',
+        'msExitFullscreen',
+      ]) {
+        if (key in document) {
+          return true;
         }
-        return false;
-      }());
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        config.devicePixelRatio = 1;
       }
-      loadingCover.style.display = "";
+      return false;
+    }());
 
-      const script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          spinner.style.display = "none";
-          progressBarEmpty.style.display = "";
-          progressBarFull.style.width = `${100 * progress}%`;
-        }).then((unityInstance) => {
-          loadingCover.style.display = "none";
-          if (canFullscreen) {
-            if (!hideFullScreenButton) {
-              fullscreenButton.style.display = "";
-            }
-            fullscreenButton.onclick = () => {
-              unityInstance.SetFullscreen(1);
-            };
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      container.className = "unity-mobile";
+      config.devicePixelRatio = 1;
+    }
+    loadingCover.style.display = "";
+
+    const script = document.createElement("script");
+    script.src = loaderUrl;
+    script.onload = () => {
+      createUnityInstance(canvas, config, (progress) => {
+        spinner.style.display = "none";
+        progressBarEmpty.style.display = "";
+        progressBarFull.style.width = `${100 * progress}%`;
+      }).then((unityInstance) => {
+        loadingCover.style.display = "none";
+        if (canFullscreen) {
+          if (!hideFullScreenButton) {
+            fullscreenButton.style.display = "";
           }
-        }).catch((message) => {
-          alert(message);
-        });
-      };
-      document.body.appendChild(script);
-    </script>
-  </body>
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }
+      }).catch((message) => {
+        alert(message);
+      });
+    };
+    document.body.appendChild(script);
+  </script>
+</body>
+
 </html>
